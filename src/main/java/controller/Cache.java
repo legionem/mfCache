@@ -1,3 +1,7 @@
+package controller;
+
+import model.Key;
+
 import java.util.Map;
 import java.util.concurrent.*;
 /**

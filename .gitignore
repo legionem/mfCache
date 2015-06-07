@@ -1,4 +1,5 @@
 lib/
+.idea
 ### Java template
 *.class
 
