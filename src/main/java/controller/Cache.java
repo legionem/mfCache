@@ -42,7 +42,7 @@ public class Cache<K,V> {
                 public void run() {
                     for (Key key : cacheMap.keySet()) {
                         long time = System.currentTimeMillis();
-                        if (key.isNotALive(time)) {
+                        if (key.isNotALive()) {
                             cacheMap.remove(key);
                         }
                     }
@@ -72,7 +72,7 @@ public class Cache<K,V> {
      * @return
      */
     public V get(K key) {
-        return cacheMap.get(new Key(key));
+        return cacheMap.get(new Key(key,0));
     }
 
     /**
@@ -84,7 +84,7 @@ public class Cache<K,V> {
     }
 
     public boolean isContains(K key) {
-        return cacheMap.containsKey(new Key(key));
+        return cacheMap.containsKey(new Key(key,0));
     }
 
     /**
@@ -92,7 +92,7 @@ public class Cache<K,V> {
      * @param key
      */
     public void remove(K key) {
-        cacheMap.remove(new Key(key));
+        cacheMap.remove(new Key(key,0));
     }
 
     /**
